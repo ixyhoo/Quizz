@@ -9,6 +9,6 @@
 body {
   min-height: 100vh;
   font-family: Open sans, sans-serif;
-  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  background: linear-gradient(to right, hsl(145, 59%, 58%), #032350);
   padding: clamp(20px, 5vw, 50px) 20px 10px;
 }
