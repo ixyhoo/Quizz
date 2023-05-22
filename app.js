@@ -23,6 +23,7 @@ function handleSubmit(event) {
     //console.log(radioButtons);
     //console.log(results);
     showResults(results);
+    addColors(results);
 }
 
 const titleResult = document.querySelector(".results h2");
@@ -85,4 +86,30 @@ switch (errorsNumber) {
       default:
         titleResult.textContent = "Wops, cas innatendu.";
 }
+}
+
+const questions = document.querySelectorAll(".question-block");
+
+function addColors(results){
+    results.forEach((response, index) => {
+        if(results[index]){
+            questions[index].style.backgroundImage = "linear-gradient(135deg, #fff 0%, #fff 49%, #baffff 50%, #baffff 100%)";
+        }else{
+            questions[index].style.backgroundImage = "linear-gradient(135deg, #fff 0%, #fff 49%, #ffbae7 50%, #ffbae7 100%)";
+            
+         
+        }
+    });
+}
+
+const radioInputs = document.querySelectorAll("input[type='radio']");
+
+radioInputs.forEach(radioInput => radioInput.addEventListener("input", restColor))
+
+function restColor(e){
+    const index = e.target.getAttribute("name").slice(1) -1;
+    const parentQuestionBlock = questions[index];
+
+    parentQuestionBlock.style.background = "white";
+    parentQuestionBlock.style.backgroundImage = "none";
 }
